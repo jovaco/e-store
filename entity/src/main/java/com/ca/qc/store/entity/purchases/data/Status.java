@@ -1,4 +1,4 @@
-package com.ca.qc.store.entity.purchases;
+package com.ca.qc.store.entity.purchases.data;
 
 public enum Status {
     VENDU,

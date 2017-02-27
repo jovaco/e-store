@@ -1,28 +1,20 @@
-package com.ca.qc.store.entity.purchases;
+package com.ca.qc.store.entity.purchases.data;
 
-import com.ca.qc.store.entity.purchases.data.Status;
 import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Table(name = "t_addresses")
 @Entity
-@Table(name = "t_products")
-public class Products implements Serializable {
+public class Addresses implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private String name;
-    private Double unitPrice;
-    private String description;
-    private Set<Byte> images;
-    private Status status;
 
     public Long getId() {
         return id;
@@ -42,10 +34,10 @@ public class Products implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Products)) {
+        if (!(object instanceof Addresses)) {
             return false;
         }
-        Products other = (Products) object;
+        Addresses other = (Addresses) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -54,7 +46,7 @@ public class Products implements Serializable {
 
     @Override
     public String toString() {
-        return "com.ca.qc.store.model.Products[ id=" + id + " ]";
+        return "com.ca.qc.store.entity.purchases.Addresses[ id=" + id + " ]";
     }
     
 }

@@ -1,6 +1,8 @@
 package com.ca.qc.store.entity.purchases;
 
 import com.ca.qc.store.entity.User;
+import com.ca.qc.store.entity.purchases.data.Activities;
+import com.ca.qc.store.entity.purchases.data.Sectors;
 import javax.persistence.Entity;
 import java.io.Serializable;
 import javax.persistence.Table;
@@ -8,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.persistence.Transient;
 import javax.persistence.Version;
+import javax.validation.constraints.Null;
 
 @Entity
 @Table(name = "t_seller")
@@ -31,10 +35,23 @@ public class Seller extends User implements Serializable {
 
 	@Column(length = 35, name = "column_email")
 	private String email;
+        
+	@Column(length = 35)
+        @Transient
+	private String emailChecker;        
 
 	@Column(length = 10, name = "column_phone")
 	private Integer phone;
-
+        
+        //http://www.registreentreprises.gouv.qc.ca/fr/a_propos/neq/
+        @Column(length = 10, name = "column_nuq")
+        private Integer nuq;
+        
+        @Column(length = 10, name = "column_nas") @Null
+        private Integer NAS; //no obligatoire
+        private String yourUse; //votre utilisation: cotidien, en cas de cesour.... 
+                
+        
 	public Long getId() {
 		return this.id;
 	}

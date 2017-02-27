@@ -1,5 +1,7 @@
 package com.ca.qc.store.entity;
 
+import com.ca.qc.store.entity.purchases.data.Activities;
+import com.ca.qc.store.entity.purchases.data.Sectors;
 import javax.persistence.Entity;
 import java.io.Serializable;
 import javax.persistence.Table;
@@ -25,8 +27,10 @@ public class Store implements Serializable {
 	@Column(length = 30, name = "column_name", nullable = false)
 	private String name;
         
-        private String category;
-        private String activity;
+        private Sectors businessSector; //secteur d'activites       
+        private Activities businessActivity; //activites        
+//        private String category;
+//        private String activity;
 
 	public Long getId() {
 		return this.id;
